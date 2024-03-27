@@ -14,17 +14,19 @@ function Home() {
           backgroundImage: `url(${Image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          opacity: "0.9",
         }}
       >
         <div className="container px-3">
           <div
-            className="card bg-light card-glass border-0"
+            className="card bg-white card-glass border-0"
             style={{
               width: "100%",
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
               backgroundSize: "cover",
-              opacity: "1",
+              opacity: "1.9",
             }}
           >
             <div className="card-body">
