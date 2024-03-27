@@ -1,0 +1,17 @@
+.custom-font {
+    font-family: 'Nunito', sans-serif;
+}
+
+.glass {
+    background: #bededc;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.card-glass {
+    background: rgba(190, 222, 220, 0.45);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+    border-radius: 10px;
+}
