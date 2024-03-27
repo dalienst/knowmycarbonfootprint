@@ -20,7 +20,7 @@ function Home() {
       >
         <div className="container px-3">
           <div
-            className="card bg-white card-glass border-0"
+            className="card card-glass border-0"
             style={{
               width: "100%",
               backgroundRepeat: "no-repeat",
