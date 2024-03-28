@@ -71,7 +71,6 @@ function CarbonFootprint() {
       setResultData(response.data);
       setShowModal(true);
     } catch (error) {
-      console.log(error)
     } finally {
       setLoading(false);
     }
