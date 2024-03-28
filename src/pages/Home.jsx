@@ -11,11 +11,6 @@ function Home() {
         className="container-fluid m-0 m-auto py-5 d-flex align-items-center"
         style={{
           height: "auto",
-          backgroundImage: `url(${Image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          opacity: "0.9",
         }}
       >
         <div className="container px-3">
