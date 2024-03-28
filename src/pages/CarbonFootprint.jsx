@@ -4,6 +4,7 @@ import { api } from "../api/axios";
 import { apiUrls } from "../constants/Links";
 
 function CarbonFootprint() {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     bodyType: "",
     sex: "",
@@ -36,6 +37,7 @@ function CarbonFootprint() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const formattedData = {
       "Body Type": formData.bodyType,
       Sex: formData.sex,
@@ -58,6 +60,7 @@ function CarbonFootprint() {
       Cooking_With: formData.cookingWith,
     };
 
+    
     try {
       const response = await api.post(
         apiUrls?.predictCarbonEmissions,
@@ -66,6 +69,8 @@ function CarbonFootprint() {
       console.log("API response:", response.data);
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -84,7 +89,7 @@ function CarbonFootprint() {
       >
         <div className="container">
           <div
-            className="card bg-white card-glass border-0"
+            className="card  card-glass border-0"
             style={{
               width: "100%",
               backgroundRepeat: "no-repeat",
@@ -510,9 +515,27 @@ function CarbonFootprint() {
                     </div>
                   </div>
                 </section>
-                <button type="submit" className="btn btn-outline-primary">
-                  Submit
-                </button>
+                <div className="mb-3">
+                  <button
+                    type="submit"
+                    className="btn btn-light w-100 fw-bold rounded-pill"
+                    disabled={loading} 
+                  >
+                    {loading ? (
+                      <>
+                        <div
+                          className="spinner-border text-success"
+                          role="status"
+                        >
+                          <span className="visually-hidden">Loading...</span>
+                        </div>
+                      </>
+                    ) : (
+                      "Get Carbon Footprint"
+                    )}{" "}
+                    {/* Change button text when loading */}
+                  </button>
+                </div>
               </form>
             </div>
           </div>
