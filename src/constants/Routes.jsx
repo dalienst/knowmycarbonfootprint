@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { appLinks } from "./Links";
+import Navbar from "../layouts/Navbar";
+import Footer from "../layouts/Footer";
 
 const Home = React.lazy(() => import("../pages/Home"));
 const CarbonFootprint = React.lazy(() => import("../pages/CarbonFootprint"));
@@ -18,6 +20,7 @@ function BaseRouter() {
             </>
           }
         >
+          <Navbar/>
           <Routes>
             <Route exact path={appLinks?.Home} element={<Home />} />
             <Route
@@ -25,6 +28,7 @@ function BaseRouter() {
               element={<CarbonFootprint />}
             />
           </Routes>
+          <Footer/>
         </Suspense>
       </Router>
     </>

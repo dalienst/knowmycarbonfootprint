@@ -3,9 +3,9 @@
 }
 
 .glass {
-    background: #bededc;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+background: #bededc;
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
 }
 
 .card-glass {
