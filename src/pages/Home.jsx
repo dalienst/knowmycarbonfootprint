@@ -10,7 +10,7 @@ function Home() {
       <div
         className="container-fluid m-0 m-auto py-5 d-flex align-items-center"
         style={{
-          height: "100vh",
+          height: "auto",
           backgroundImage: `url(${Image})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
