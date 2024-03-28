@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Image from "../assets/images/footprint.jpg";
+import { api } from "../api/axios";
+import { apiUrls } from "../constants/Links";
 
 function CarbonFootprint() {
   const [formData, setFormData] = useState({
@@ -32,7 +34,7 @@ function CarbonFootprint() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formattedData = {
       "Body Type": formData.bodyType,
@@ -55,8 +57,16 @@ function CarbonFootprint() {
       Recycling: formData.recycling,
       Cooking_With: formData.cookingWith,
     };
-    // Handle form submission here
-    console.log("Form submitted:", formattedData);
+
+    try {
+      const response = await api.post(
+        apiUrls?.predictCarbonEmissions,
+        formattedData
+      );
+      console.log("API response:", response.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (

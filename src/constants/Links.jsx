@@ -3,4 +3,8 @@ const appLinks = {
   CarbonFootprint: "/carbon-footprint",
 };
 
-export { appLinks };
+const apiUrls = {
+  predictCarbonEmissions: "predict-carbon-emissions/",
+};
+
+export { appLinks, apiUrls };
