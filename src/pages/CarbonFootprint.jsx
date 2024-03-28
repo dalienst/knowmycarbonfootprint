@@ -68,11 +68,9 @@ function CarbonFootprint() {
         apiUrls?.predictCarbonEmissions,
         formattedData
       );
-      console.log("API response:", response.data);
       setResultData(response.data);
       setShowModal(true);
     } catch (error) {
-      console.error("Error:", error);
     } finally {
       setLoading(false);
     }
