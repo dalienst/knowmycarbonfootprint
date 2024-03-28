@@ -7,5 +7,4 @@ const API_URL = "https://climate-carbon-footprint.onrender.com/carbon/";
 export const api = axios.create({
   baseURL: API_URL,
   headers: { "Content-Type": "application/json" },
-  withCredentials: true,
 });
