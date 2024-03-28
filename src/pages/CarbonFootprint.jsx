@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import Image from "../assets/images/footprint.jpg";
 import { api } from "../api/axios";
 import { apiUrls } from "../constants/Links";
+import ResultModal from "../components/ResultModal";
 
 function CarbonFootprint() {
   const [loading, setLoading] = useState(false);
+  const [resultData, setResultData] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     bodyType: "",
     sex: "",
@@ -60,13 +63,14 @@ function CarbonFootprint() {
       Cooking_With: formData.cookingWith,
     };
 
-    
     try {
       const response = await api.post(
         apiUrls?.predictCarbonEmissions,
         formattedData
       );
       console.log("API response:", response.data);
+      setResultData(response.data);
+      setShowModal(true);
     } catch (error) {
       console.error("Error:", error);
     } finally {
@@ -519,7 +523,7 @@ function CarbonFootprint() {
                   <button
                     type="submit"
                     className="btn btn-light w-100 fw-bold rounded-pill"
-                    disabled={loading} 
+                    disabled={loading}
                   >
                     {loading ? (
                       <>
@@ -541,6 +545,11 @@ function CarbonFootprint() {
           </div>
         </div>
       </div>
+      <ResultModal
+        show={showModal}
+        onClose={() => setShowModal(false)}
+        resultData={resultData}
+      />
     </>
   );
 }
