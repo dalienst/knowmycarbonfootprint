@@ -454,7 +454,7 @@ function CarbonFootprint() {
                           htmlFor="energyEfficiency"
                           className="form-label"
                         >
-                          Do you consider the energy efficiency of electronic
+                          Consider the energy efficiency of electronic
                           devices?
                         </label>
                         <select
